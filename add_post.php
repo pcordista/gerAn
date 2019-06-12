@@ -69,7 +69,7 @@ $queryCategoria = mysqli_query($conn, $puxarListCategorias) or die(mysqli_error(
 		<div class="file-field input-field">
 			<div class="btn">
 				<span>Upar Imagens</span>
-				<input type="file" multiple name="imagens[]" required>
+				<input type="file" multiple name="imagens[]">
 			</div>
 			<div class="file-path-wrapper">
 				<input class="file-path validate" type="text" placeholder="Adicione outras fotos">

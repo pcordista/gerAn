@@ -4203,7 +4203,7 @@ nav ul li.active {
 nav ul a {
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
-  font-size: 1.3rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   color: #fff;
   display: block;

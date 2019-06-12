@@ -7,7 +7,7 @@
 				<li><a href="badges.html">CATEGORIAS</a></li>
 				<?php 
 				if((isset($_SESSION['nome']) == true)) {
-					?> <li class="valign-wrapper" style="width: 130px"><a href="collapsible.html" style="display: flex"><i class="material-icons iconsmenuhelper">person</i>
+					?> <li class="valign-wrapper" style="width: 120px"><a href="collapsible.html" style="display: flex"><i class="material-icons iconsmenuhelper">person</i>
 						<?php echo strtoupper($logado);
 				} ?></a></li>
 				<?php if((!isset($_SESSION['nome']) == true)) { 

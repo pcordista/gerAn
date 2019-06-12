@@ -31,7 +31,7 @@
       
      // Declaração de Variáveis
      var nome   = document.getElementById("search").value;
-     var result = document.getElementById("Resultado");
+     var result = document.getElementById("ResultadoTotal");
      var xmlreq = CriaRequest();
       
      // Exibi a imagem de progresso

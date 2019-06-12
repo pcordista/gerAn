@@ -9,7 +9,7 @@ $queryCategorias = mysqli_query($conn, $buscarCategorias)or die(mysqli_error($co
 ?>
 
   <div class="input-field col s12 m12">
-    <select class="icons">
+    <select class="icons" name="filterCategoria">
       <option value="" disabled selected>Choose your option</option>
 
       <?php 
@@ -28,5 +28,4 @@ $queryCategorias = mysqli_query($conn, $buscarCategorias)or die(mysqli_error($co
 
      ?>
  </select>
- <label>Images in select</label>
 </div>

@@ -3,7 +3,8 @@
 include "conn.php";
 
 //Recebe os valores dos checkbox em forma de array
-$categoria = $_POST;
+print_r($filterCategoria);
+$filterCategoria = $_POST;
 $cat = array_shift($categoria);
 
 
