@@ -1,0 +1,346 @@
+/* 
+PEDRO HENRIQUE V CORDISTA
+CREATIVECODE | DEVSPACE 
+27/05/2019 
+TRANSPORTESPORAPP.COM.BR - ADMIN
+*/
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat Light';
+  overflow-x: hidden;
+  background: white;
+
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  color: black
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: black;
+  outline: 1px solid slategrey;
+}
+
+input.select-dropdown[type=text] {
+  padding-left: 1rem;
+}
+
+input[type=number]::placeholder {
+  color: lightgray;
+  margin: 0px !important
+}
+
+input[type=text]::placeholder, input[type=number]::placeholder, input[type=password]::placeholder {
+  color: lightgray;
+  font-size: .8rem;
+  margin: 0px !important;
+  padding-left: 10px
+}
+
+input[type=number] {
+  padding-left: 2rem !important
+}
+
+input[type=text] {
+}
+
+/* preloader */
+
+/* HELPERS */
+
+.jumpline {
+  margin-top: 1rem
+}
+
+.jumplinebottom {
+  margin-bottom: 1rem
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.bordergray {
+  border: 1px solid lightgray;
+  padding: 10px !important
+}
+
+.divider {
+  border-top: 1px solid lightgray;
+  width: 100%;
+  height: 3px;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
+
+.nopadding {
+  padding: 0px !important
+}
+
+.desativado {
+  background-color: lightgray;
+}
+
+.borderright {
+  border-right: 1px solid lightgray;
+}
+
+.itemdescription {
+  font-size: .8rem
+}
+
+/* FIM HELPERS */
+
+/* MENU */
+
+.menu {
+  height: 75px;
+  line-height: 75px;
+  background-color: rgba(0,0,0,.1) !important;
+}
+
+.iconsmenuhelper {
+  line-height: 75px !important;
+  margin-right: .3rem !important;
+}
+
+/* FIM MENU */
+
+/* INDEX */
+
+.mainbackground {
+  background: url('../img/background.jpg') no-repeat 100%;
+  background-size: cover;
+  min-height: 535px !important
+}
+
+.mainnav {
+  margin-top: 7rem;
+}
+
+.formsearch {
+  margin-top: 2rem
+}
+
+.searchinput {
+  width: 40% !important;
+  background-color: white !important;
+  border-top-left-radius: 20px !important;
+  border-bottom-left-radius: 20px !important;
+  color: black
+}
+
+.btnsearch {
+  margin-left: -4px !important;
+  margin-top: -2px;
+  height: 45px !important;
+  line-height: 45px !important;
+  border-top-right-radius: 30px !important;
+  border-bottom-right-radius: 30px !important
+}
+
+.title {
+  font-family: 'Montserrat Bold';
+  font-size: 2.5rem
+}
+
+.subtitle {
+  font-size: 1rem !important
+}
+
+/* FIM INDEX */
+
+
+/* CATEGORIAS */
+
+.categorias-title {
+  font-size: 30px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  font-family: 'Montserrat Bold'
+}
+
+.categorias-title:before {
+  position: absolute;
+  content: '';
+  height: 3px;
+  width: 70px;
+  margin-left: -90px;
+  bottom: 22px;
+  background-color: #03A9F4;
+}
+
+.categorias-title:after {
+  position: absolute;
+  content: '';
+  height: 3px;
+  width: 70px;
+  margin-left: 20px;
+  bottom: 22px;
+  background-color: #03A9F4;
+}
+
+.categorias {
+  font-size: 1.2rem
+}
+
+/* FIM CATEGORIAS */
+
+
+/* HOWWORKS */
+
+.howworks-title {
+  font-size: 30px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  margin-top: 2rem;
+  font-family: 'Montserrat Bold'
+}
+
+.howworks-title:before {
+  position: absolute;
+  content: '';
+  height: 3px;
+  width: 70px;
+  margin-left: -90px;
+  bottom: 22px;
+  background-color: #03A9F4;
+}
+
+.howworks-title:after {
+  position: absolute;
+  content: '';
+  height: 3px;
+  width: 70px;
+  margin-left: 20px;
+  bottom: 22px;
+  background-color: #03A9F4;
+}
+
+.howworks {
+  font-size: 1.2rem
+}
+
+.howworksrow {
+  margin-top: 2rem
+}
+
+.howworksitem {
+  width: 180px;
+  height: 180px;
+  padding: 18px;
+  background: #FEFBFB;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border: 1px dotted #BBBBBB;
+  justify-content: center;
+}
+
+
+/* FIM HOWWORKS */
+
+/* POSTS */
+
+.postsbackground {
+  background: url('../img/bgposts.jpg') no-repeat 100%;
+  background-size: cover;
+  min-height: 250px !important
+
+}
+
+.postsnav {
+  margin-top: 3rem;
+}
+
+
+/* FIM: POSTS; */
+
+/* POSTSITEM */
+
+.itemrow {
+}
+
+.itemimg {
+  position: relative;
+  height: 210px !important;
+  margin-top: 2rem
+
+}
+
+.itemprice {
+  position: absolute;
+  z-index: 10;
+  padding: .2rem .8rem;
+  border-radius: 20px;
+  right: 20px;
+  top: 10px
+}
+
+.itembg {
+  position: relative;
+}
+
+.itembg > img {
+  max-width: 100%
+}
+
+.itemcat {
+  background: rgba(0, 0, 0, 0.5) !important;
+  position: absolute;
+  z-index: 10;
+  padding: .2rem .8rem;
+  border-radius: 20px;
+  left: 20px;
+  bottom: 10px;
+}
+
+.itemdetails {
+  height: 210px !important;
+  margin-top: 2rem;
+}
+
+.itemtitle {
+  font-family: 'Montserrat Bold';
+  font-size: 1.3rem;
+}
+
+.itemviews {
+  margin-right: .3rem
+}
+
+/* FIM: POSTSITEM */
+
+/* MENU AUXILIAR POSTS */
+
+.checkboxfilter {
+  width: 100%
+}
+
+/* FIM MENU AUXILIAR POSTS */
+
+
+@media only screen and (max-width: 901px) {
+
+	/* HELPERS */
+
+	.container {
+		width: 100% !important
+	}
+
+	/* HOME */
+
+	
+}
+
