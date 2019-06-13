@@ -4,10 +4,35 @@
 
 include('assets/php/conn.php');
 
-if(isset($_POST["action"]))
+$query = "SELECT * FROM anuncios";
+
+
+
+if(isset($_POST["action"]) or @isset($_GET["nome"]))
 {
-	$query = "
-	SELECT * FROM anuncios";
+
+	print_r($_POST["nome"]);
+	if ($_POST["nome"] == null) {
+		echo "oi";
+	} else {
+
+		if(isset($_POST["nome"]))
+		{
+			$nome_filter = $_POST["nome"];
+			$nome_filter .= "%";
+			print_r($nome_filter);
+			
+			$verif = strstr($query, "WHERE");
+			if ($verif){
+				$query .= " AND titulo like ".$nome_filter;
+			} else {
+				$query .= " WHERE titulo like ".$nome_filter;
+			}
+		}
+
+	}
+
+	
 	if(isset($_POST["brand"]))
 	{
 		$brand_filter = implode("','", $_POST["brand"]);
@@ -39,6 +64,7 @@ if(isset($_POST["action"]))
 	if($total_row > 0)
 	{
 
+	print_r($query);
 		foreach($resulta as $row)
 		{
 
@@ -115,6 +141,9 @@ if(isset($_POST["action"]))
 		$output = '<h3>No Data Found</h3>';
 	}
 	echo $output;
+	print_r($query);
 }
+
+
 
 ?>

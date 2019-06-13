@@ -40,11 +40,11 @@ if(empty($_GET['pag'])){
 		<?php include 'menu.php' ?>
 
 		<section class="postsnav center-align white-text">
-			<form id="" onsubmit="getDados(); return false;">
+			<form id="" onsubmit="">
 				<input placeholder="Digite sua pesquisa" id="search" type="text" class="searchinput">
-				<button class="btn waves-effect waves-light blue btnsearch"  name="action" onclick="getDados();">Pesquisar
+				<a class="btn waves-effect waves-light blue btnsearch" id="btnsearch"  name="action" onclick="">Pesquisar
 					<i class="material-icons right">send</i>
-				</button>
+				</a>
 			</form>
 		</section>
 
@@ -115,7 +115,7 @@ if(empty($_GET['pag'])){
 
 
 	<?php include 'assets/php/scripts.php' ?>
-	<script type="text/javascript" src="assets/js/search.js"></script>
+<!-- 	<script type="text/javascript" src="assets/js/search.js"></script> -->
 	<!-- <script type="text/javascript" src="assets/js/filter.js"></script> -->
 	<script>
 		
@@ -127,12 +127,13 @@ if(empty($_GET['pag'])){
 			{
 				$('.filter_data').html('<div id="loading" style="" ></div>');
 				var action = 'fetch_data';
+				var nome = $('.searchinput').val();
 				var brand = get_filter('brand');
 				var ram = get_filter('ram');
 				$.ajax({
 					url:"fetch_data.php",
 					method:"POST",
-					data:{action:action, brand:brand, ram:ram},
+					data:{action:action, brand:brand, ram:ram, nome:nome},
 					success:function(data){
 						$('.filter_data').html(data);
 					}
@@ -150,6 +151,11 @@ if(empty($_GET['pag'])){
 
 			$('.common_selector').click(function(){
 				filter_data();
+			});
+
+			$('#btnsearch').click(function(){
+				filter_data();
+				console.log("oi");
 			});
 
 

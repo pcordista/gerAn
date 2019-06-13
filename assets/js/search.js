@@ -38,7 +38,7 @@
      result.innerHTML = '<img src="loader.gif"/>';
       
      // Iniciar uma requisição
-     xmlreq.open("GET", "assets/php/busca.php?nome=" + nome, true);
+     xmlreq.open("GET", "fetch_data.php?nome=" + nome, true);
       
      // Atribui uma função para ser executada sempre que houver uma mudança de ado
      xmlreq.onreadystatechange = function(){
