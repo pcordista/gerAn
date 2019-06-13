@@ -8,6 +8,11 @@ require 'check_session.php';
 
 // error_reporting(0);
 // ini_set(“display_errors”, 0 );
+if($_GET == null) {
+
+} else {
+	$get = $_GET['search'];
+}
 
 $buscarCategorias = "SELECT * FROM categoria";
 $queryCategorias = mysqli_query($conn, $buscarCategorias)or die(mysqli_error($conn));
@@ -40,9 +45,9 @@ if(empty($_GET['pag'])){
 		<?php include 'menu.php' ?>
 
 		<section class="postsnav center-align white-text">
-			<form id="" onsubmit="">
+			<form id="search">
 				<input placeholder="Digite sua pesquisa" id="search" type="text" class="searchinput">
-				<a class="btn waves-effect waves-light blue btnsearch" id="btnsearch"  name="action" onclick="">Pesquisar
+				<a class="btn waves-effect waves-light blue btnsearch" id="btnsearch"  name="action">Pesquisar
 					<i class="material-icons right">send</i>
 				</a>
 			</form>
@@ -57,112 +62,75 @@ if(empty($_GET['pag'])){
 		<div class="row" id="ResultadoTotal">
 
 			<div class="col s12 m3 nopadding hide-on-med-and-down jumpline">
-				<?php include 'filterposts.php' ?>
-			</div>
-
-			<div class="filter_data col s12 m9" id="Resultado">
-			</div>
-		</div>
-
-	</section>
-	<section>
-
-		
-		<div class="row valign-wrapper">
-			<div class="col s12 m2 offset-m7 right-align">
-				
+				<div class="filterdiv" id="filterdiv">
+					<?php include 'filterposts.php' ?>
+				</div>
+				<!-- PASSAR GET DO INDEX PARA QUERY -->
+				<input type="hidden" name="get" class="get" value="
 				<?php 
-				echo "Página ".$pag." de ".$paginas;
-				?>
+					if($_GET == null) {
+
+					} else {
+						echo $get;
+					}
+					?>">
+				</div>
+
+				<div class="filter_data col s12 m9" id="Resultado">
+				</div>
 			</div>
-			<div class="col s12 m3 right-align">
-				<ul class="pagination">
-					<?php
+
+		</section>
+		<section>
 
 
-					if($pag!=1){
-						echo "<li class=''><a href=posts.php?pag=".($pag-1)."><i class='material-icons'>chevron_left</i></a></li>"; 
-						for($i=1;$i<=$paginas;$i++){
-							if($pag==$i){
-								echo "<li class='active'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
-							}else{
-								echo "<li class='waves-effect'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
-							}
-						}
-					}
-					else{
-						for($i=1;$i<=$paginas;$i++){
-							if($pag==$i){
-								echo "<li class='active'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
-							}else{
-								echo "<li class='waves-effect'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
-							}
-						}
-					}
-					if($pag!=$paginas){
-						echo "<li class='waves-effect'><a href='posts.php?pag=".($pag+1)."'><i class='material-icons'>chevron_right</i></a></li>";
-					}
+			<div class="row valign-wrapper">
+				<div class="col s12 m2 offset-m7 right-align">
 
+					<?php 
+					echo "Página ".$pag." de ".$paginas;
 					?>
-					
-					
-					
-				</ul>
+				</div>
+				<div class="col s12 m3 right-align">
+					<ul class="pagination">
+						<?php
+
+
+						if($pag!=1){
+							echo "<li class=''><a href=posts.php?pag=".($pag-1)."><i class='material-icons'>chevron_left</i></a></li>"; 
+							for($i=1;$i<=$paginas;$i++){
+								if($pag==$i){
+									echo "<li class='active'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
+								}else{
+									echo "<li class='waves-effect'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
+								}
+							}
+						}
+						else{
+							for($i=1;$i<=$paginas;$i++){
+								if($pag==$i){
+									echo "<li class='active'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
+								}else{
+									echo "<li class='waves-effect'><a href='posts.php?pag=".$i."'>".$i."</a></li>";
+								}
+							}
+						}
+						if($pag!=$paginas){
+							echo "<li class='waves-effect'><a href='posts.php?pag=".($pag+1)."'><i class='material-icons'>chevron_right</i></a></li>";
+						}
+
+						?>
+
+
+
+					</ul>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
 
 
-	<?php include 'assets/php/scripts.php' ?>
-<!-- 	<script type="text/javascript" src="assets/js/search.js"></script> -->
-	<!-- <script type="text/javascript" src="assets/js/filter.js"></script> -->
-	<script>
-		
-		$(document).ready(function(){
-
-			filter_data();
-
-			function filter_data()
-			{
-				$('.filter_data').html('<div id="loading" style="" ></div>');
-				var action = 'fetch_data';
-				var nome = $('.searchinput').val();
-				var brand = get_filter('brand');
-				var ram = get_filter('ram');
-				$.ajax({
-					url:"fetch_data.php",
-					method:"POST",
-					data:{action:action, brand:brand, ram:ram, nome:nome},
-					success:function(data){
-						$('.filter_data').html(data);
-					}
-				});
-			}
-
-			function get_filter(class_name)
-			{
-				var filter = [];
-				$('.'+class_name+':checked').each(function(){
-					filter.push($(this).val());
-				});
-				return filter;
-			}
-
-			$('.common_selector').click(function(){
-				filter_data();
-			});
-
-			$('#btnsearch').click(function(){
-				filter_data();
-				console.log("oi");
-			});
-
-
-		});
-
-
-
-	</script>
-</body>
-</html>
+		<?php include 'assets/php/scripts.php' ?>
+		<script type="text/javascript" src="assets/js/filter_posts.js"></script>
+	</body>
+	</html>

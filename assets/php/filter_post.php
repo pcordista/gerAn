@@ -2,69 +2,95 @@
 
 //fetch_data.php
 
-include('assets/php/conn.php');
+include('conn.php');
 
 $query = "SELECT * FROM anuncios";
 
 
 
-if(isset($_POST["action"]) or @isset($_GET["nome"]))
-{
+if(isset($_POST["action"]) or isset($_POST["zerar"]))
+{	
 
-	print_r($_POST["nome"]);
-	if ($_POST["nome"] == null) {
-		echo "oi";
-	} else {
 
-		if(isset($_POST["nome"]))
+	if(isset($_POST["getIndex"])) {
+		if($_POST["getIndex"] > 0)
 		{
-			$nome_filter = $_POST["nome"];
-			$nome_filter .= "%";
-			print_r($nome_filter);
-			
-			$verif = strstr($query, "WHERE");
-			if ($verif){
-				$query .= " AND titulo like ".$nome_filter;
-			} else {
-				$query .= " WHERE titulo like ".$nome_filter;
+			$get = $_POST["getIndex"];
+			$get .= "%";
+			$query .= " WHERE titulo like '$get'";
+			$filter_active = "1";
+		} else {}
+	}
+
+
+
+	if(isset($_POST["pesquisa"])) {
+		if ($_POST["pesquisa"] == null) {
+		} else {
+
+			if(isset($_POST["pesquisa"]))
+			{
+				$pesquisa_filter = $_POST["pesquisa"];
+				$pesquisa_filter .= "%";
+
+				$verif = strstr($query, "WHERE");
+				if ($verif){
+					$query .= " AND titulo like '$pesquisa_filter'";
+				} else {
+					$query .= " WHERE titulo like '$pesquisa_filter'";
+				}
+				$filter_active = "1";
+
 			}
+
 		}
 
 	}
 
 	
-	if(isset($_POST["brand"]))
+	if(isset($_POST["categoria"]))
 	{
-		$brand_filter = implode("','", $_POST["brand"]);
+		$categoria_filter = implode("','", $_POST["categoria"]);
 		
 		$verif = strstr($query, "WHERE");
 		if ($verif){
-			$query .= " AND categoria ='".$brand_filter."'";
+			$query .= " AND categoria ='".$categoria_filter."'";
 		} else {
-			$query .= " WHERE categoria ='".$brand_filter."'";
+			$query .= " WHERE categoria ='".$categoria_filter."'";
 		}
+		$filter_active = "1";
 	}
-	if(isset($_POST["ram"]))
+	if(isset($_POST["cidade"]))
 	{
-		$ram_filter = implode("','", $_POST["ram"]);
+		$cidade_filter = implode("','", $_POST["cidade"]);
 
 		
 		$verif = strstr($query, "WHERE");
 		if ($verif){
-			$query .= " AND cidade = '".$ram_filter."'";
+			$query .= " AND cidade = '".$cidade_filter."'";
 		} else {
-			$query .= " WHERE cidade ='".$ram_filter."'";
+			$query .= " WHERE cidade ='".$cidade_filter."'";
 		}
+		$filter_active = "1";
 	}
+
+	
+
+	if(isset($_POST["zerar"])) {
+		unset($query);
+		$query = "SELECT * FROM anuncios";
+		$filter_active = "1";
+	}
+
 	$resulta = mysqli_query($conn, $query);
 	// $statement->execute();
 	// $result = $statement->fetchAll();
 	$total_row = mysqli_num_rows($resulta);
 	$output = '';
+	echo $filter_active;
 	if($total_row > 0)
 	{
 
-	print_r($query);
 		foreach($resulta as $row)
 		{
 
@@ -140,8 +166,8 @@ if(isset($_POST["action"]) or @isset($_GET["nome"]))
 	{
 		$output = '<h3>No Data Found</h3>';
 	}
+
 	echo $output;
-	print_r($query);
 }
 
 

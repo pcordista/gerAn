@@ -16,10 +16,10 @@ require 'check_session.php';
 	<section class="mainnav center-align white-text">
 		<span class="title"><span class="blue-text">Bem vindo ao</span> BOMNEGOCIO<span class="blue-text">.SHOP</span></span>
 		<BR><span class="subtitle">Compre e venda de tudo desde de carros, produtos eletrônicos, computadores, serviços e muito mais!</span>
-		<form class="formsearch">
-			<input placeholder="Digite sua pesquisa" id="search" type="text" class="searchinput">
-			<button class="btn waves-effect waves-light blue btnsearch" type="submit" name="action">Submit
-				<i class="material-icons right">send</i>
+		<form class="formsearch" action="posts.php" method="get">
+			<input placeholder="Digite sua pesquisa" id="search" type="text" class="searchinput" name="search">
+			<button class="btn waves-effect waves-light blue btnsearch" type="submit">Pesquise
+				<i class="material-icons right">search</i>
 			</button>
 		</form>
 	</section>

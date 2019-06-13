@@ -1,3 +1,18 @@
+  
+
+  <?php 
+
+  include 'assets/php/conn.php';
+  echo $filter_active;
+    if(isset($filter_active)) {
+      echo "oi";
+    }
+  ?>
+  <a class="btn waves-effect waves-light red cleanFilter" id="cleanFilter" type="reset" name="cleanFilter">Limpar
+  </a>
+
+
+
   <div class="list-group">
     <h3>Categorias</h3>
     <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
@@ -16,7 +31,7 @@
 
 
         <div>
-          <input type="checkbox" class="common_selector brand" id="check<?php echo $row['categoria']; ?>" value="<?php echo $row['categoria']; ?>">
+          <input type="checkbox" class="common_selector categoria" id="check<?php echo $row['categoria']; ?>" value="<?php echo $row['categoria']; ?>">
           <label for="check<?php echo $row['categoria']; ?>"><?php echo $rowCat['categoria']; ?></label>
         </div>
         <?php
@@ -44,7 +59,7 @@
 
 
       <div>
-        <input type="checkbox" class="common_selector ram" id="check<?php echo $row['cidade']; ?>" value="<?php echo $row['cidade']; ?>">
+        <input type="checkbox" class="common_selector cidade" id="check<?php echo $row['cidade']; ?>" value="<?php echo $row['cidade']; ?>">
         <label for="check<?php echo $row['cidade']; ?>"><?php echo $row['cidade']; ?></label>
       </div>
       <?php

@@ -18,4 +18,5 @@ $pathToUp = "../anuncios/";
 $pathToAcess = "assets/anuncios/";
 
 mysqli_set_charset($conn,"utf8");
+
 ?>
