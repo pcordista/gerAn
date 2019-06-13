@@ -1,15 +1,7 @@
-  
-
-  <?php 
-
-  include 'assets/php/conn.php';
-  echo $filter_active;
-    if(isset($filter_active)) {
-      echo "oi";
-    }
-  ?>
-  <a class="btn waves-effect waves-light red cleanFilter" id="cleanFilter" type="reset" name="cleanFilter">Limpar
+<div class="widthfull">
+  <a class="btn waves-effect waves-light red cleanFilter widthfull" id="cleanFilter" type="reset" name="cleanFilter">Limpar
   </a>
+</div>
 
 
 

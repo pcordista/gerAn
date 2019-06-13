@@ -8,7 +8,8 @@ $query = "SELECT * FROM anuncios";
 
 
 
-if(isset($_POST["action"]) or isset($_POST["zerar"]))
+
+if(isset($_POST["action"]) or isset($_POST["zerar"]) or isset($_POST["maximo"]) or ($_POST["contador"]) == 1)
 {	
 
 
@@ -39,7 +40,6 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]))
 				} else {
 					$query .= " WHERE titulo like '$pesquisa_filter'";
 				}
-				$filter_active = "1";
 
 			}
 
@@ -58,7 +58,6 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]))
 		} else {
 			$query .= " WHERE categoria ='".$categoria_filter."'";
 		}
-		$filter_active = "1";
 	}
 	if(isset($_POST["cidade"]))
 	{
@@ -71,23 +70,34 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]))
 		} else {
 			$query .= " WHERE cidade ='".$cidade_filter."'";
 		}
-		$filter_active = "1";
 	}
 
-	
 
 	if(isset($_POST["zerar"])) {
 		unset($query);
 		$query = "SELECT * FROM anuncios";
-		$filter_active = "1";
 	}
 
+	if(isset($_POST["contador"])){
+   		$sql_res=mysqli_query($conn, "SELECT * FROM anuncios"); //consulta no banco
+		$contador=mysqli_num_rows($sql_res); //Pegando Quantidade de itens
+	}
+
+	// Contador de Paginas 
+	if (isset($_POST['maximo'])) {
+		$pag = $_POST['pagina'];
+		$maximo = $_POST['maximo'];
+		$inicio = ($pag * $maximo) - $maximo;
+		$query .= " LIMIT $inicio, $maximo";
+	}
+	
+
 	$resulta = mysqli_query($conn, $query);
+
 	// $statement->execute();
 	// $result = $statement->fetchAll();
 	$total_row = mysqli_num_rows($resulta);
 	$output = '';
-	echo $filter_active;
 	if($total_row > 0)
 	{
 
@@ -159,8 +169,11 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]))
 			<?php  
 			'.$row['telefone'].''.$row['id_user'].'
 			</div>
-			</div>';
+			</div>
+			';
 		}
+
+
 	}
 	else
 	{
