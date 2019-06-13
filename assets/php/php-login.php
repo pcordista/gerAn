@@ -26,7 +26,7 @@ if(@mysqli_num_rows($result) > 0) {
 }
 
 else {
-	echo    "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/php/login.php'>
+	echo    "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=../../login.php'>
 	<script type='text/javascript'>
 	alert('Usuário ou Senha incorreto.');
 	</script>"; 

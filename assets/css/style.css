@@ -33,12 +33,7 @@ input.select-dropdown[type=text] {
   padding-left: 1rem;
 }
 
-input[type=number]::placeholder {
-  color: lightgray;
-  margin: 0px !important
-}
-
-input[type=text]::placeholder, input[type=number]::placeholder, input[type=password]::placeholder {
+input::placeholder {
   color: lightgray;
   font-size: .8rem;
   margin: 0px !important;
@@ -157,6 +152,23 @@ input[type=text] {
 }
 
 /* FIM INDEX */
+
+
+/* LOGIN */
+
+.login {
+  height: calc(100vh - 350px) !important;
+}
+
+.loginform {
+  padding: 1rem !important
+}
+
+.cadastro {
+  height: calc(100vh - 250px) !important;
+}
+
+/* FIM: LOGIN; */
 
 
 /* CATEGORIAS */

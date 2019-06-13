@@ -1,31 +1,54 @@
-<?php
+  <div class="list-group">
+    <h3>Categorias</h3>
+    <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+      <?php
 
-$buscarCategorias = "SELECT * FROM categoria";
-$queryCategorias = mysqli_query($conn, $buscarCategorias)or die(mysqli_error($conn));
+      $query = "SELECT DISTINCT(categoria) FROM anuncios";
+      $statement = mysqli_query($conn, $query);
 
+      while($row = mysqli_fetch_assoc($statement)){
+        $idCat = $row['categoria'];
+         $buscarCategorias = "SELECT * FROM categoria WHERE id = '$idCat'";
+        $queryCategorias = mysqli_query($conn, $buscarCategorias)or die(mysqli_error($conn));
+        $rowCat = mysqli_fetch_assoc($queryCategorias);
 
-
-
-?>
-
-  <div class="input-field col s12 m12">
-    <select class="icons" name="filterCategoria">
-      <option value="" disabled selected>Choose your option</option>
-
-      <?php 
-
-      while($rowCat = mysqli_fetch_assoc($queryCategorias)){
-         ?>
-         <option value="<?php
-         echo $rowCat['categoria'];
-         ?>" data-icon="assets/img/background.jpg"><?php
-         echo $rowCat['categoria'];
-         ?></option>
+        ?>
 
 
-         <?php
-     }
+        <div>
+          <input type="checkbox" class="common_selector brand" id="check<?php echo $row['categoria']; ?>" value="<?php echo $row['categoria']; ?>">
+          <label for="check<?php echo $row['categoria']; ?>"><?php echo $rowCat['categoria']; ?></label>
+        </div>
+        <?php
+      }
 
-     ?>
- </select>
-</div>
+      ?>
+    </div>
+  </div>
+
+
+  <div class="list-group">
+    <h3>Cidades</h3>
+    <?php
+
+    $query = "
+    SELECT DISTINCT(cidade) FROM anuncios";
+    $statement = mysqli_query($conn, $query);
+
+
+
+    while($row = mysqli_fetch_assoc($statement)){
+
+
+      ?>
+
+
+      <div>
+        <input type="checkbox" class="common_selector ram" id="check<?php echo $row['cidade']; ?>" value="<?php echo $row['cidade']; ?>">
+        <label for="check<?php echo $row['cidade']; ?>"><?php echo $row['cidade']; ?></label>
+      </div>
+      <?php
+    }
+
+    ?>
+  </div>
