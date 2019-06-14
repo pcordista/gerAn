@@ -1,5 +1,5 @@
 <div class="widthfull">
-  <a class="btn waves-effect waves-light red cleanFilter widthfull" id="cleanFilter" type="reset" name="cleanFilter">Limpar
+  <a class="btn waves-effect waves-light red cleanFilter widthfull" id="cleanFilter" type="reset" name="cleanFilter">Limpar Filtros
   </a>
 </div>
 

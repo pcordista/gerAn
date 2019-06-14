@@ -6,22 +6,10 @@ include('conn.php');
 
 $query = "SELECT * FROM anuncios";
 
-
-
+print_r($_POST);
 
 if(isset($_POST["action"]) or isset($_POST["zerar"]) or isset($_POST["maximo"]) or ($_POST["contador"]) == 1)
 {	
-
-
-	if(isset($_POST["getIndex"])) {
-		if($_POST["getIndex"] > 0)
-		{
-			$get = $_POST["getIndex"];
-			$get .= "%";
-			$query .= " WHERE titulo like '$get'";
-			$filter_active = "1";
-		} else {}
-	}
 
 
 
@@ -31,7 +19,8 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]) or isset($_POST["maximo"]) 
 
 			if(isset($_POST["pesquisa"]))
 			{
-				$pesquisa_filter = $_POST["pesquisa"];
+				$pesquisa_filter = "%";
+				$pesquisa_filter .= $_POST["pesquisa"];
 				$pesquisa_filter .= "%";
 
 				$verif = strstr($query, "WHERE");
@@ -86,11 +75,12 @@ if(isset($_POST["action"]) or isset($_POST["zerar"]) or isset($_POST["maximo"]) 
 	// Contador de Paginas 
 	if (isset($_POST['maximo'])) {
 		$pag = $_POST['pagina'];
-		$maximo = $_POST['maximo'];
+		$maximo = 5;
 		$inicio = ($pag * $maximo) - $maximo;
-		$query .= " LIMIT $inicio, $maximo";
+		// $query .= " LIMIT $inicio, $maximo";
 	}
 	
+	echo $query;
 
 	$resulta = mysqli_query($conn, $query);
 

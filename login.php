@@ -32,7 +32,7 @@
 				</div>
 				<input type="password" id="senha" name="senha" placeholder="Senha" required="" />
 				<div class="center jumpline">
-					<button class="btn waves-effect waves-light" type="submit" name="action">Acessar
+					<button class="btn green waves-effect waves-light" type="submit" name="action">Acessar
 						<i class="material-icons right">send</i>
 					</button>
 				</div>

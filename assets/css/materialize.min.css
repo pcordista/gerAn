@@ -6305,7 +6305,7 @@ textarea.materialize-textarea+label:after,
 .input-field label {
   color: #9e9e9e;
   position: absolute;
-  top: 0;
+  top: -7px;
   left: 0;
   height: 100%;
   font-size: 1rem;
@@ -6323,8 +6323,8 @@ textarea.materialize-textarea+label:after,
 }
 
 .input-field label:not(.label-icon).active {
-  -webkit-transform: translateY(-14px) scale(0.8);
-  transform: translateY(-14px) scale(0.8);
+  -webkit-transform: translateY(-5px) scale(0.8);
+  transform: translateY(-5px) scale(0.8);
   -webkit-transform-origin: 0 0;
   transform-origin: 0 0
 }

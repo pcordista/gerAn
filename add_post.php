@@ -9,7 +9,7 @@ if((!isset ($_SESSION['nome']) == true) and (!isset ($_SESSION['senha']) == true
 	unset($_SESSION['email']);
 	unset($_SESSION['senha']);
 	unset($_SESSION['nome']);
-	echo    "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=http://localhost/php/login.php'>
+	echo    "<META HTTP-EQUIV=REFRESH CONTENT = '0;URL=login.php'>
 	<script type='text/javascript'>
 	alert('Logue para prosseguir');
 	</script>";

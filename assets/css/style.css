@@ -29,6 +29,10 @@ body {
   outline: 1px solid slategrey;
 }
 
+input {
+  height: 2rem !important
+}
+
 input.select-dropdown[type=text] {
   padding-left: 1rem;
 }
@@ -101,13 +105,13 @@ input[type=text] {
 /* MENU */
 
 .menu {
-  height: 75px;
-  line-height: 75px;
+  height: 50px;
+  line-height: 50px;
   background-color: rgba(0,0,0,.1) !important;
 }
 
 .iconsmenuhelper {
-  line-height: 75px !important;
+  line-height: 50x !important;
   margin-right: .3rem !important;
 }
 
@@ -134,7 +138,8 @@ input[type=text] {
   background-color: white !important;
   border-top-left-radius: 20px !important;
   border-bottom-left-radius: 20px !important;
-  color: black
+  color: black;
+  height: 3rem !important
 }
 
 .btnsearch {
@@ -158,8 +163,23 @@ input[type=text] {
   font-size: 2.5rem
 }
 
+.title2 {
+  font-size: 1.8rem;
+}
+
 .subtitle {
-  font-size: 1rem !important
+  font-size: 1.3rem !important
+}
+
+.catindex {
+  color: white !important;
+  padding: 3rem 1rem !important;
+  margin: 1rem;
+  width: calc(25% - 1rem) !important
+}
+
+.catindex > i {
+  margin-bottom: 1rem
 }
 
 /* FIM INDEX */
@@ -284,7 +304,8 @@ input[type=text] {
 }
 
 .postsnav {
-  margin-top: 3rem;
+  height: 200px !important;
+  justify-content: center;
 }
 
 

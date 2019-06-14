@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 	// Chama função 
 	contador();
-	var numItens=1;
+	var numItens=10;
 	filter_data(pagina,numItens);
 
 	function filter_data(pag, max)
@@ -41,13 +41,13 @@ $(document).ready(function(){
 
 
 	function filter_clean()
-	{
+	{	
 		// Cria efeito loading
 		$('.filter_data').html('<div id="loading" style="" ></div>');
 		// Define de variavel que fara PHP zerar
 		var zerar = '1';
 		var contador = "1";
-		maximo = "1";
+		maximo = "10";
 		var pagina=1;
 		// Chama o Ajax
 		$.ajax({
@@ -130,7 +130,7 @@ $(document).ready(function(){
 });
 
 
-var numItens=1;
+var numItens=10;
 var pagina=1;
 
 function filter_data(pag, max)
